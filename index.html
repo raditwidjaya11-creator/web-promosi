@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>FORSDIGPOS - Sistem Kasir Digital</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -16,101 +18,98 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#f5f5f5;
+background:#f7f7f7;
 color:#333;
 }
 
 .container{
+width:95%;
 max-width:1400px;
 margin:auto;
-padding:20px;
 }
 
 .hero{
-background:linear-gradient(135deg,#d60000,#ff2d2d);
+background:linear-gradient(135deg,#c40000,#ff2d2d);
 color:white;
-padding:50px;
-border-radius:20px;
+padding:60px;
+border-radius:25px;
+margin:20px 0;
 display:flex;
-justify-content:space-between;
 align-items:center;
+justify-content:space-between;
 flex-wrap:wrap;
+gap:30px;
 }
 
 .hero-text{
-max-width:600px;
+flex:1;
+min-width:300px;
 }
 
-.hero h1{
-font-size:55px;
+.hero-text h1{
+font-size:60px;
 font-weight:800;
 }
 
-.hero h2{
-font-size:22px;
-margin-top:10px;
-}
-
-.hero p{
+.hero-text p{
 margin-top:20px;
 font-size:18px;
-line-height:1.6;
+line-height:1.8;
+}
+
+.hero-image{
+flex:1;
+text-align:center;
+}
+
+.hero-image img{
+max-width:100%;
+height:auto;
 }
 
 .btn{
 display:inline-block;
-background:white;
-color:#d60000;
 padding:15px 30px;
-border-radius:10px;
-font-weight:bold;
-margin-top:20px;
+background:#fff;
+color:#d60000;
+font-weight:700;
 text-decoration:none;
-}
-
-.hero img{
-width:500px;
-max-width:100%;
+border-radius:10px;
+margin-top:20px;
 }
 
 .section-title{
 text-align:center;
-font-size:35px;
+margin:60px 0 30px;
+font-size:38px;
+color:#d60000;
 font-weight:700;
-margin:50px 0 30px;
-color:#d60000;
 }
 
-.features{
+.cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.feature{
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
-
-.feature h3{
-color:#d60000;
-margin-bottom:10px;
-}
-
-.packages{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:25px;
-margin-top:30px;
 }
 
 .card{
 background:white;
 border-radius:20px;
 overflow:hidden;
-box-shadow:0 5px 20px rgba(0,0,0,.1);
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:contain;
+background:#fff;
+padding:15px;
 }
 
 .card-header{
@@ -120,14 +119,18 @@ padding:20px;
 text-align:center;
 }
 
+.card-header h3{
+font-size:26px;
+}
+
 .price{
-font-size:40px;
-font-weight:700;
+font-size:38px;
+font-weight:800;
 margin-top:10px;
 }
 
 .card-body{
-padding:25px;
+padding:20px;
 }
 
 .card-body ul{
@@ -139,49 +142,68 @@ padding:8px 0;
 border-bottom:1px solid #eee;
 }
 
-.card-body li:before{
-content:"✓ ";
+.card-body li::before{
+content:"✔ ";
 color:green;
 font-weight:bold;
 }
 
-.highlight{
-border:4px solid #ffb100;
-transform:scale(1.03);
+.tag{
+display:inline-block;
+background:#ffeaea;
+color:#d60000;
+padding:8px 15px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+margin-bottom:15px;
 }
 
 .promo{
-margin-top:50px;
-background:#fff;
-padding:40px;
-border-radius:20px;
+background:white;
+padding:50px;
+border-radius:25px;
+margin:60px 0;
 text-align:center;
-box-shadow:0 5px 20px rgba(0,0,0,.1);
 }
 
 .promo h2{
-font-size:45px;
 color:#d60000;
+font-size:40px;
+margin-bottom:20px;
 }
 
 .contact{
-margin-top:50px;
 background:#d60000;
 color:white;
-padding:40px;
-border-radius:20px;
+padding:50px;
+border-radius:25px;
 text-align:center;
+margin-bottom:40px;
 }
 
 .contact h2{
 margin-bottom:15px;
-font-size:35px;
+}
+
+.floating-wa{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 25px;
+border-radius:50px;
+text-decoration:none;
+font-weight:700;
+box-shadow:0 5px 20px rgba(0,0,0,.2);
+z-index:999;
 }
 
 .footer{
 text-align:center;
-padding:30px;
-color:#666;
+padding:20px;
+color:#777;
 }
 
 @media(max-width:768px){
@@ -191,12 +213,8 @@ padding:30px;
 text-align:center;
 }
 
-.hero h1{
-font-size:38px;
-}
-
-.hero img{
-margin-top:30px;
+.hero-text h1{
+font-size:42px;
 }
 
 .section-title{
@@ -206,209 +224,264 @@ font-size:28px;
 .price{
 font-size:32px;
 }
+
 }
+
 </style>
 </head>
-
 <body>
 
 <div class="container">
 
-<div class="hero">
+<section class="hero">
 
 <div class="hero-text">
 <h1>FORSDIGPOS</h1>
-<h2>Sistem Kasir Digital Modern</h2>
 
 <p>
-Kelola usaha lebih mudah dengan aplikasi kasir berbasis cloud.
-Cocok untuk toko, minimarket, apotek, BUMDes, toko bangunan,
-dan UMKM.
+Sistem Kasir Digital Modern untuk UMKM,
+Toko Kelontong, Apotek, Minimarket,
+Toko Bangunan, BUMDes dan Koperasi.
 </p>
 
-<a href="#" class="btn">Coba Gratis 30 Hari</a>
+<a href="#paket" class="btn">Lihat Paket</a>
 </div>
 
-<img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1000" alt="">
+<div class="hero-image">
+<img src="assets/hero-pos.png" alt="FORSDIGPOS">
 </div>
 
-<h2 class="section-title">Fitur Unggulan</h2>
+</section>
 
-<div class="features">
+<h2 class="section-title" id="paket">
+PAKET APLIKASI CLOUD
+</h2>
 
-<div class="feature">
-<h3>Kasir Digital</h3>
-<p>Transaksi cepat dan mudah digunakan.</p>
-</div>
-
-<div class="feature">
-<h3>Manajemen Stok</h3>
-<p>Pantau stok secara realtime.</p>
-</div>
-
-<div class="feature">
-<h3>Laporan Lengkap</h3>
-<p>Laporan harian, bulanan dan tahunan.</p>
-</div>
-
-<div class="feature">
-<h3>QRIS</h3>
-<p>Pembayaran digital lebih praktis.</p>
-</div>
-
-<div class="feature">
-<h3>Cloud Backup</h3>
-<p>Data aman tersimpan di cloud.</p>
-</div>
-
-<div class="feature">
-<h3>Multi Cabang</h3>
-<p>Kelola banyak toko dalam satu akun.</p>
-</div>
-
-</div>
-
-<h2 class="section-title">Paket Lengkap + Tablet</h2>
-
-<div class="packages">
+<div class="cards">
 
 <div class="card">
+<img src="assets/cloud-pos.png">
 
 <div class="card-header">
-<h3>SMART POS</h3>
-<div class="price">Rp2,49 JT</div>
+<h3>Starter</h3>
+<div class="price">Rp1.500</div>
+<p>/hari</p>
 </div>
 
 <div class="card-body">
 <ul>
-<li>FORSDIGPOS 1 Tahun</li>
+<li>1 Kasir</li>
+<li>500 Produk</li>
+<li>Cloud Backup</li>
+<li>Laporan Dasar</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<img src="assets/cloud-pos.png">
+
+<div class="card-header">
+<h3>Basic</h3>
+<div class="price">Rp2.500</div>
+<p>/hari</p>
+</div>
+
+<div class="card-body">
+<ul>
+<li>Produk Unlimited</li>
+<li>Pelanggan</li>
+<li>Supplier</li>
+<li>Laporan Lengkap</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<img src="assets/cloud-pos.png">
+
+<div class="card-header">
+<h3>Pro</h3>
+<div class="price">Rp5.000</div>
+<p>/hari</p>
+</div>
+
+<div class="card-body">
+<ul>
+<li>Multi Kasir</li>
+<li>QRIS</li>
+<li>Export Excel</li>
+<li>Hak Akses</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<h2 class="section-title">
+PAKET TANPA TABLET
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="assets/printer-thermal.png">
+
+<div class="card-header">
+<h3>Mini POS</h3>
+<div class="price">Rp5.000</div>
+<p>/hari</p>
+</div>
+
+<div class="card-body">
+<ul>
+<li>Printer Thermal</li>
+<li>FORSDIGPOS</li>
+<li>Support</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<img src="assets/scanner-barcode.png">
+
+<div class="card-header">
+<h3>Standard POS</h3>
+<div class="price">Rp7.500</div>
+<p>/hari</p>
+</div>
+
+<div class="card-body">
+<ul>
+<li>Printer Thermal</li>
+<li>Scanner Barcode</li>
+<li>FORSDIGPOS</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<img src="assets/cash-drawer.png">
+
+<div class="card-header">
+<h3>Pro POS</h3>
+<div class="price">Rp10.000</div>
+<p>/hari</p>
+</div>
+
+<div class="card-body">
+<ul>
+<li>Printer Thermal</li>
+<li>Scanner Wireless</li>
+<li>Laci Kasir</li>
+<li>FORSDIGPOS</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<h2 class="section-title">
+PAKET DENGAN TABLET
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="assets/tablet.png">
+
+<div class="card-header">
+<h3>Smart POS</h3>
+<div class="price">Rp12.000</div>
+<p>/hari</p>
+</div>
+
+<div class="card-body">
+<ul>
 <li>Tablet Android</li>
 <li>Printer Thermal</li>
-<li>Training Online</li>
-<li>Support 1 Tahun</li>
+<li>FORSDIGPOS</li>
 </ul>
 </div>
-
-</div>
-
-<div class="card highlight">
-
-<div class="card-header">
-<h3>BUSINESS POS</h3>
-<div class="price">Rp3,49 JT</div>
-</div>
-
-<div class="card-body">
-<ul>
-<li>FORSDIGPOS 1 Tahun</li>
-<li>Tablet Android 10"</li>
-<li>Printer Thermal 80mm</li>
-<li>Scanner Barcode</li>
-<li>Support Prioritas</li>
-</ul>
-</div>
-
 </div>
 
 <div class="card">
+<img src="assets/tablet.png">
 
 <div class="card-header">
-<h3>PREMIUM POS</h3>
-<div class="price">Rp4,99 JT</div>
+<h3>Business POS</h3>
+<div class="price">Rp15.000</div>
+<p>/hari</p>
 </div>
 
 <div class="card-body">
 <ul>
-<li>FORSDIGPOS 1 Tahun</li>
+<li>Tablet Android</li>
+<li>Printer Thermal</li>
+<li>Scanner Barcode</li>
+<li>FORSDIGPOS</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<img src="assets/tablet.png">
+
+<div class="card-header">
+<h3>Premium POS</h3>
+<div class="price">Rp18.000</div>
+<p>/hari</p>
+</div>
+
+<div class="card-body">
+<ul>
 <li>Tablet Android</li>
 <li>Printer Thermal</li>
 <li>Scanner Wireless</li>
 <li>Laci Kasir</li>
-<li>Training Karyawan</li>
-</ul>
-</div>
-
-</div>
-
-</div>
-
-<h2 class="section-title">Paket Sewa Bulanan</h2>
-
-<div class="packages">
-
-<div class="card">
-<div class="card-header">
-<h3>SMART RENTAL</h3>
-<div class="price">Rp249rb</div>
-</div>
-
-<div class="card-body">
-<ul>
-<li>Tablet Android</li>
-<li>Aplikasi FORSDIGPOS</li>
-<li>Printer Thermal</li>
-</ul>
-</div>
-</div>
-
-<div class="card">
-<div class="card-header">
-<h3>BUSINESS RENTAL</h3>
-<div class="price">Rp349rb</div>
-</div>
-
-<div class="card-body">
-<ul>
-<li>Tablet Android</li>
-<li>Printer Thermal</li>
-<li>Scanner Barcode</li>
-<li>Cloud POS</li>
-</ul>
-</div>
-</div>
-
-<div class="card">
-<div class="card-header">
-<h3>PREMIUM RENTAL</h3>
-<div class="price">Rp499rb</div>
-</div>
-
-<div class="card-body">
-<ul>
-<li>Tablet Android</li>
-<li>Printer Thermal</li>
-<li>Scanner Wireless</li>
-<li>Laci Kasir</li>
-<li>Support Prioritas</li>
+<li>FORSDIGPOS</li>
 </ul>
 </div>
 </div>
 
 </div>
 
-<div class="promo">
+<section class="promo">
+
 <h2>🎉 PROMO LAUNCHING</h2>
-<p><strong>100 Pelanggan Pertama</strong></p>
+
+<p>100 Pelanggan Pertama</p>
+
 <br>
+
 <p>✅ Gratis Setup</p>
 <p>✅ Gratis Import Produk</p>
 <p>✅ Gratis Training</p>
-<p>✅ Support Prioritas</p>
-</div>
+<p>✅ Gratis Support Prioritas</p>
 
-<div class="contact">
-<h2>Hubungi Kami</h2>
-<p>PT. Foresyndo Global Indonesia</p>
-<p>📞 0811-1234-5678</p>
-<p>📧 info@forsdigpos.com</p>
+</section>
+
+<section class="contact">
+
+<h2>PT. Foresyndo Global Indonesia</h2>
+
 <p>📍 Majalengka, Jawa Barat</p>
-</div>
+
+<p>📞 08385549026</p>
+
+<p>📧 info@forsdigpos.com</p>
+
+</section>
 
 <div class="footer">
-© 2026 FORSDIGPOS - Sistem Kasir Digital Modern
+© 2026 FORSDIGPOS
 </div>
 
 </div>
+
+<a href="https://wa.me/08385549026" class="floating-wa">
+WhatsApp
+</a>
 
 </body>
 </html>
